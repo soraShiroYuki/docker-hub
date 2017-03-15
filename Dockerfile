@@ -1,8 +1,5 @@
-copy from publysher/hugo
-
 FROM debian:jessie
-# MAINTAINER yigal@publysher.nl
-# MAINTAINER nobuhito.sato@gmail.com
+
 MAINTAINER kodai.aoyama@gmail.com
 
 RUN apt-get -qq update \
