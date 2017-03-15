@@ -3,7 +3,7 @@ copy from publysher/hugo
 FROM debian:jessie
 # MAINTAINER yigal@publysher.nl
 # MAINTAINER nobuhito.sato@gmail.com
-# MAINTAINER kodai.aoyama@gmail.com
+MAINTAINER kodai.aoyama@gmail.com
 
 RUN apt-get -qq update \
         && DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends apt-utils ca-certificates curl zip
