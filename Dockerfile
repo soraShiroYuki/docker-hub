@@ -15,6 +15,12 @@ RUN apt-get -qq update \
 
 RUN rm -fr /var/lib/apt/lists/*
 
+# Download and install guetzli
+ENV GUETZLI_VERSION 1.0
+
+ADD https://github.com/google/guetzli/releases/download/v${GUETZLI_VERSION}/guetzli_linux_x86-64 /usr/local/bin/guetzli
+RUN chmod 755 /usr/local/bin/guetzli
+
 # Download and install hugo
 ENV HUGO_VERSION 0.19
 ENV HUGO_TARBALL hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
@@ -24,7 +30,6 @@ ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/${HUGO_TARB
 RUN tar xzf /usr/local/${HUGO_TARBALL} -C /usr/local/ \
         && ln -s /usr/local/${HUGO_BINARY}/${HUGO_BINARY} /usr/local/bin/hugo \
         && rm /usr/local/${HUGO_TARBALL}
-
 
 # Create working directory
 RUN mkdir /usr/share/blog
